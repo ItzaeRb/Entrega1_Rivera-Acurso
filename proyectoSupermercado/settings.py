@@ -55,7 +55,7 @@ ROOT_URLCONF = 'proyectoSupermercado.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [f'{BASE_DIR}/proyectoSupermercado/template'],
+        'DIRS': [f'{BASE_DIR}/proyectoSupermercado/template',f'{BASE_DIR}/SuperMarket/template' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
