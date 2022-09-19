@@ -1,0 +1,21 @@
+.contenido1{
+    position: relative;
+    top: 60px;
+    border: 1px solid red; 
+}
+
+body #navbar{
+    background-color:#BAD879;
+}
+
+body #title_navbar{
+    margin-left: 10px;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.nav-item :hover{
+    background-color: #5ACFC9;
+}
