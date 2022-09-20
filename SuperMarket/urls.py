@@ -3,5 +3,5 @@ from SuperMarket.views import *
 
 urlpatterns = [
     path('', inicio),
-    
+    path('productos/', productos)
 ]

@@ -6,3 +6,6 @@ from django.http import HttpResponse
 #Se crea una funcion para cada pagina
 def inicio(request):
     return render(request, "login.html")
+
+def productos(request):
+    return render(request, "productos.html")
