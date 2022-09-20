@@ -1,1 +1,31 @@
 {% extends "login.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <div class="form_productos">
+        <div><h3>Registro de Productos</h3></div>
+
+        <form class="form_datos">
+            <label id="etiqueta">Nombre: </label>
+            <input type="text" placeholder="Nombre del producto">
+            <br>
+            <label id="etiqueta">Categoría: </label>
+            <input type="text" placeholder="Categoría">
+            <br>
+            <label id="etiqueta">Tipo: </label>
+            <input type="text" placeholder="Tipo de producto">
+            <br>
+            <label>Descripción: </label>
+            <input type="text" placeholder="Descripción">
+            <br>
+            <label>Marca: </label>
+            <input type="text" placeholder="Marca">
+            <br>
+            <label>Precio: </label>
+            <input type="number" placeholder="Precio">
+        </form>
+    </div>
+
+{% endblock %}

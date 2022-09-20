@@ -1,7 +1,32 @@
 .contenido1{
     position: relative;
     top: 60px;
-    border: 1px solid red; 
+}
+
+.form_productos{
+    margin: auto;
+    width: 50%;
+    height: auto;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.form_datos{
+    color: red;
+    margin-left: 25%;
+}
+
+body #etiqueta{
+    color: blue;
+}
+
+h3{
+    margin-left: 25%;
+ }
+
+body{
+    background-color: #FA9F42;
 }
 
 body #navbar{
@@ -12,10 +37,7 @@ body #title_navbar{
     margin-left: 10px;
 }
 
-body{
-    background-color: whitesmoke;
-}
-
 .nav-item :hover{
     background-color: #5ACFC9;
 }
+
