@@ -7,45 +7,47 @@
     <div class="form_productos">
         <div><h3>Registro de Productos</h3></div>
 
-        <form class="form_datos">
+    
+
+        <form class="form_datos" method="POST" action="/SuperMarket/create_productos/">{% csrf_token %}
             <div>
                 <label>Clave: </label>
                 <input type="text" name="claveProducto" placeholder="Clave">
             </div>
             <br>
             <div>
-            <label>Nombre: </label>
-            <input type="text" name="nombreProducto" placeholder="Nombre del producto">
+                <label>Nombre: </label>
+                <input type="text" name="nombreProducto" placeholder="Nombre del producto">
             </div>
             <br>
             <div>
-            <label>Departamento: </label>
-            <input type="text" name="departamento" placeholder="Departamento">
+                <label>Departamento: </label>
+                <input type="text" name="departamento" placeholder="Departamento">
             </div>
             <br>
             <div>
-            <label>Tipo: </label>
-            <input type="text" name="tipo" placeholder="Tipo de producto">
+                <label>Tipo: </label>
+                <input type="text" name="tipo" placeholder="Tipo de producto">
             </div>
             <br>
             <div>
-            <label>Marca: </label>
-            <input type="text" name="marca" placeholder="Marca">
+                <label>Marca: </label>
+                <input type="text" name="marca" placeholder="Marca">
             </div>
             <br>
             <div>
-            <label>Unidad de medida: </label>
-            <input type="text" name="unidadMedida" placeholder="Unidad de medida">
+                <label>Unidad de medida: </label>
+                <input type="text" name="unidadMedida" placeholder="Unidad de medida">
             </div>
             <br>
             <div>
                 <label>Fecha de caducidad: </label>
-                <input type="date" name="fechaCaducidad" placeholder="Fecha de caducidad">
-                </div>
-                <br>
+                <input type="text" name="fechaCaducidad" placeholder="Fecha de caducidad">
+            </div>
+            <br>
             <div>
-            <label>Stock: </label>
-            <input type="number" name="stock" placeholder="Stock">
+                <label>Stock: </label>
+                <input type="number" name="stock" placeholder="Stock">
             </div>
             <br>
             <button type="submit" class="btn btn-primary btndj">Registrar</button>

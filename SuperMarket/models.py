@@ -11,6 +11,12 @@ class Productos(models.Model):
     fechaCaducidad = models.DateField()
     stock = models.IntegerField()
 
+        #esta def es para mostrar los datos en la web
+    #def __str__(self):
+        #return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Correo: {self.email}"
+
+    
+
 class Empleados(models.Model):
     claveEmpleado = models.CharField(max_length=10)
     nombre = models.CharField(max_length=80)

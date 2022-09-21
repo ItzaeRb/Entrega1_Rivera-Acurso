@@ -14,8 +14,13 @@ def productos(request):
 
 def create_productos(request):
     if request.method == 'POST':
-        producto = Productos(nombre = request.POST['nombre'], apellido = request.POST['apellido'], email = request.POST['email'])
+        producto = Productos(claveProducto = request.POST['claveProducto'], nombre = request.POST['nombreProducto'], departamento = request.POST['departamento'], tipo = request.POST['tipo'], marca = request.POST['marca'], unidadMedida = request.POST['unidadMedida'], fechaCaducidad = request.POST['fechaCaducidad'], stock = request.POST['stock'])
         producto.save()
         productos = Productos.objects.all()    
-        return render(request, "estudiantesCRUD/read_productos.html", {"productos": productos})
-    return render(request, "estudiantesCRUD/create_productos.html")
+        return render(request, "read_productos.html", {"productos": productos})
+    return render(request, "create_productos.html")
+
+
+def read_productos(request):
+    productos = Productos.objects.all() #Trae todo
+    return render(request, "read_productos.html", {"productos": productos})
