@@ -9,24 +9,33 @@
     height: auto;
     background-color: whitesmoke;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 2px 15px 8px rgba(0, 0, 0, 0.2);
 }
 
 .form_datos{
-    color: red;
-    margin-left: 25%;
+    margin:auto auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 20px;
+    color: black;
 }
 
-body #etiqueta{
-    color: blue;
+.btndj{
+    border-radius: 20px !important;
+    width: 40%;
+    margin:auto auto;
+    
 }
+
+
 
 h3{
     margin-left: 25%;
  }
 
 body{
-    background-color: #FA9F42;
+    background-color: white;
 }
 
 body #navbar{
