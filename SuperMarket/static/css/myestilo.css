@@ -25,6 +25,11 @@ body{
     box-shadow: 3px 2px 15px 8px rgba(0, 0, 0, 0.2);
 }
 
+img{
+    width: 60%;
+    margin: auto auto;
+}
+
 .form_ver_productos{
     margin: auto;
     width: 80%;
