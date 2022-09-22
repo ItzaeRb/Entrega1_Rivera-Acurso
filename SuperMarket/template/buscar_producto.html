@@ -4,22 +4,34 @@
 <!--link rel="stylesheet" href="{%static 'css/myestilo.css'%}"-->
 <!--link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}"-->
 {% block contenido %}
-
+<div class="form_inicio">
     <div>
         <form class="form_datos" action="/SuperMarket/buscar_producto/" method="GET">
-            <input type="text" name="nombre" placeholder="nombre">
+            <input type="text" name="nombre" placeholder="Nombre del producto">
+            <br>
             <button type="submit" class="btn btn-primary btndj">Buscar</button>
         </form>
     </div>
     <div>
+        <div class="encabezado">
+            <h2>Producto Encontrado</h2>
+          </div>
         {% if productos %}
         <ul>
             {% for producto in productos %}
-            <li>{{producto.claveProducto}}</li>
-            <li>{{producto.nombre}}</li>
-            <li>{{producto.departamento}}</li>
+            <li><b>Clave:</b> {{producto.claveProducto}}</li>
+            <li><b>Nombre:</b> {{producto.nombre}}</li>
+            <li><b>Departamento:</b> {{producto.departamento}}</li>
+            <li><b>Tipo: </b>{{producto.tipo}}</li>
+            <li><b>Marca:</b> {{producto.marca}}</li>
+            <li><b>Unidad de medida:</b> {{producto.unidadMedida}}</li>
+            <li><b>Fecha de caducidad:</b> {{producto.fechaCaducidad}}</li>
+            <li><b>Stock: </b>{{producto.stock}}</li>
+            <p>--------------------------------------------------</p>
+            
             {% endfor %}
         </ul>
         {% endif %}
     </div>
+</div>
 {% endblock %}
