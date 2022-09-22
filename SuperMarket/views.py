@@ -25,6 +25,19 @@ def read_productos(request):
     productos = Productos.objects.all() #Trae todo
     return render(request, "read_productos.html", {"productos": productos})
 
+
+def create_empleados(request):
+    if request.method == 'POST':
+        empleado = Empleados(claveEmpleado = request.POST['claveEmpleado'], nombre = request.POST['nombreEmpleado'], apellidoPaterno = request.POST['apellidoPaterno'], apellidoMaterno = request.POST['apellidoMaterno'], edad = request.POST['edad'], fechaNacimiento = request.POST['fechaNacimiento'], cargo = request.POST['cargo'], area = request.POST['area'])
+        empleado.save()
+        empleados = Empleados.objects.all()    
+        return render(request, "read_empleados.html", {"empleados": empleados})
+    return render(request, "create_empleados.html")
+
+def read_empleados(request):
+    empleados = Empleados.objects.all() #Trae todo
+    return render(request, "read_empleados.html", {"empleados": empleados})
+
 #AÑADIR LAS DEF PARA CREAR Y MOSTRAR CLIENTES Y EMPLEADOS
 
 def buscar_producto(request):

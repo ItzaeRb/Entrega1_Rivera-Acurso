@@ -1,0 +1,47 @@
+{% extends "login.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+
+<div class="form_ver_productos">
+  
+    <table class="table table-bordered">
+        <thead style="background-color: #FA9F42; text-align: center;">
+          <tr>
+            <th scope="col">Clave</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido paterno</th>
+            <th scope="col">Apellido materno</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Área</th>
+            
+          </tr>
+        </thead>
+
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <th>{{empleado.claveEmpleado}}</th>
+                <th>{{empleado.nombre}}</th>
+                <th>{{empleado.apellidoPaterno}}</th>
+                <th>{{empleado.apellidoMaterno}}</th>
+                <th>{{empleado.edad}}</th>
+                <th>{{empleado.fechaNacimiento}}</th>
+                <th>{{empleado.cargo}}</th>
+                <th>{{empleado.area}}</th>
+            </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+
+
+
+<a class="btn btn-success" href="/SuperMarket/create_productos">+ Agregar Empleado</a>
+
+</div>
+{% endblock %}

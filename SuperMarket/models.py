@@ -27,6 +27,10 @@ class Empleados(models.Model):
     cargo = models.CharField(max_length=80)
     area = models.CharField(max_length=80)
 
+    #esta def es para mostrar los datos en la web
+    def __str__(self):
+        return f"Clave:{self.claveEmpleado}, Nombre: {self.nombre}, Apellido paterno: {self.apellidoPaterno}, Apellido materno: {self.apellidoMaterno}, Edad: {self.edad}, Fecha de nacimiento: {self.fechaNacimiento}, Cargo: {self.cargo}, Area: {self.area}"
+
 class Clientes(models.Model):
     claveCliente = models.CharField(max_length=10)
     nombreProducto = models.CharField(max_length=80)
