@@ -16,6 +16,16 @@ body{
     box-shadow: 3px 2px 15px 8px rgba(0, 0, 0, 0.2);
 }
 
+.form_ver_productos{
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    height: auto;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 3px 2px 15px 8px rgba(0, 0, 0, 0.2);
+}
+
 .form_datos{
     width: 50%;
     margin:auto auto;
