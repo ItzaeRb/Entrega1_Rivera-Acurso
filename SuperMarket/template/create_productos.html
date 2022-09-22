@@ -3,33 +3,11 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="form_productos">
-        <div>
-            <div class="encabezado"><h3>Busqueda de Productos</h3></div>
-            <form class="form_datos" action="/SuperMarket/buscar_producto/" method="GET">
-                <input type="text" name="nombre" placeholder="Nombre">
-                <br>
-                <button type="submit" class="btn btn-primary btndj">Buscar</button>
-            </form>
-        </div>
-        <div>
-            {% if productos %}
-            <ul>
-                {% for producto in productos %}
-                <li>{{producto.claveProducto}}</li>
-                <li>{{producto.nombre}}</li>
-                <li>{{producto.departamento}}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
-    </div>
+
 
     <br>
     <br>
-    <div class="form_productos">
-        
-
+    
         <form class="form_datos" method="POST" action="/SuperMarket/create_productos/">{% csrf_token %}
             <div class="encabezado"><h3>Registro de Productos</h3></div>
             <br>
@@ -60,10 +38,6 @@
             <button type="submit" class="btn btn-primary btndj">Registrar</button>
         </form>
 
-        
-
-
-    </div>
     <br>
     <br>
 

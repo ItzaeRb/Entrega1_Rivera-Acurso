@@ -61,17 +61,42 @@
       <div class="contenido1">
         {% block contenido %}
         <div class="form_inicio">
+         
           <div class="encabezado">
             <h2>Bienvenido a SuperMarket</h2>
           </div>
           <div class="form_home">
-            <br>
             <img src="{%static 'assets/carrito.png'%}">
           </div>
           
+          <div>
+            <div class="encabezado"><h4>Busqueda de Productos</h4></div>
+            <form class="form_datos" action="/SuperMarket/buscar_producto/" method="GET">
+                <input type="text" name="nombre" placeholder="Nombre">
+                <br>
+                <button type="submit" class="btn btn-primary btndj">Buscar</button>
+            </form>
         </div>
+        <div>
+            {% if productos %}
+            <ul>
+                {% for producto in productos %}
+                <li>{{producto.claveProducto}}</li>
+                <li>{{producto.nombre}}</li>
+                <li>{{producto.departamento}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        </div>
+
+        <br>
         {% endblock %}
+
+        
     </div>
 
+
+    
 </body>
 </html>
