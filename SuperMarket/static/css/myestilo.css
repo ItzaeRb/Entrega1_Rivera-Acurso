@@ -16,7 +16,7 @@ body{
     box-shadow: 3px 2px 15px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form_productos{
+.form_productos, .form_clientes{
     margin: auto;
     width: 50%;
     height: auto;

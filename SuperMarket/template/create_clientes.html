@@ -1,0 +1,45 @@
+{% extends "login.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <div class="form_clientes">
+        <form class="form_datos" method="POST" action="/SuperMarket/create_clientes/">{% csrf_token %}
+            <div class="encabezado"><h3>Registro de Cliente</h3></div>
+            <br>
+                <label>Usuario: </label>
+                <input type="text" name="claveCliente" placeholder="Nombre de usuario">
+            <br>
+                <label>Nombre: </label>
+                <input type="text" name="nombreProducto" placeholder="Nombre">
+            <br>
+                <label>Apellido Paterno: </label>
+                <input type="text" name="apellidoPaterno" placeholder="Apellido Paterno">
+            <br>
+                <label>Apellido Materno: </label>
+                <input type="text" name="apellidoMaterno" placeholder="Apellido Materno">
+            <br>
+                <label>Edad: </label>
+                <input type="text" name="edad" placeholder="Edad">
+            <br>
+                <label>Fecha de nacimiento: </label>
+                <input type="text" name="fechaNacimiento" placeholder="yyyy-mm-dd">
+            <br>
+                <label>Email: </label>
+                <input type="text" name="email" placeholder="email">
+            <br>
+                <label>Ya esta registrado?: </label>
+                <input type="text" name="membresia" placeholder="True or False">
+            <br>
+            <button type="submit" class="btn btn-primary btndj">Registrar</button>
+        </form>
+    </div>
+        
+
+
+    
+    <br>
+    <br>
+
+{% endblock %}

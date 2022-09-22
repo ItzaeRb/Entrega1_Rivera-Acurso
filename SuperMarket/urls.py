@@ -7,4 +7,5 @@ urlpatterns = [
     path('create_productos/', create_productos),
     path('read_productos/', read_productos),
     path('buscar_producto/', buscar_producto),
+    path('create_clientes/', create_clientes),
 ]

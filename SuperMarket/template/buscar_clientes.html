@@ -1,0 +1,24 @@
+{% extends "login.html" %}
+
+{% load static %}
+
+{% block contenido %}
+    <div class="form_productos">
+        <div>
+            <div class="encabezado"><h3>Mi cuenta</h3></div>
+        </div>
+        <div>
+            {% if clientes %}
+            <ul>
+                {% for cliente in clientes %}
+                <li>{{cliente.claveCliente}}</li>
+                <li>{{cliente.nombreCliente}}</li>
+                <li>{{cliente.edad}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+
+{% endblock %}
