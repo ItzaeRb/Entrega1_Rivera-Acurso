@@ -24,3 +24,14 @@ def create_productos(request):
 def read_productos(request):
     productos = Productos.objects.all() #Trae todo
     return render(request, "read_productos.html", {"productos": productos})
+
+#AÑADIR LAS DEF PARA CREAR Y MOSTRAR CLIENTES Y EMPLEADOS
+
+def buscar_producto(request):
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        productos = Productos.objects.filter(nombre__icontains = nombre) 
+        return render(request, "buscar_producto.html", {"productos": productos})
+    else:
+        respuesta = "No enviaste datos"
+    return HttpResponse(respuesta)

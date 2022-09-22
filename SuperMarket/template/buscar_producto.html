@@ -1,0 +1,25 @@
+{% extends "login.html" %}
+
+{% load static %}
+<!--link rel="stylesheet" href="{%static 'css/myestilo.css'%}"-->
+<!--link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}"-->
+{% block contenido %}
+
+    <div>
+        <form class="form_datos" action="/SuperMarket/buscar_producto/" method="GET">
+            <input type="text" name="nombre" placeholder="nombre">
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+    </div>
+    <div>
+        {% if productos %}
+        <ul>
+            {% for producto in productos %}
+            <li>{{producto.claveProducto}}</li>
+            <li>{{producto.nombre}}</li>
+            <li>{{producto.departamento}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+{% endblock %}
