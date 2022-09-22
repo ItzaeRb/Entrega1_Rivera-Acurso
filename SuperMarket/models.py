@@ -11,9 +11,9 @@ class Productos(models.Model):
     fechaCaducidad = models.DateField()
     stock = models.IntegerField()
 
-        #esta def es para mostrar los datos en la web
-    #def __str__(self):
-        #return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Correo: {self.email}"
+    #esta def es para mostrar los datos en la web
+    def __str__(self):
+        return f"Clave:{self.claveProducto}, Nombre: {self.nombre}, Departamento: {self.departamento}, Tipo: {self.tipo}, Marca: {self.marca}, Unidad de medida: {self.unidadMedida}, Fecha de caducidad:{self.fechaCaducidad}, Stock: {self.stock}"
 
     
 
