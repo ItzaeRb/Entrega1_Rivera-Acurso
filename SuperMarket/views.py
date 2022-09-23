@@ -33,8 +33,14 @@ def create_clientes(request):
                            )
         cliente.save()
         clientes = Clientes.objects.all()
-        return render(request, "create_clientes.html", {"clientes": clientes} )
+        return render(request, "read_clientes.html", {"clientes": clientes} )
     return render(request, "create_clientes.html" )
+
+
+def read_clientes(request):
+    clientes = Clientes.objects.all() #Trae todo
+    return render(request, "read_clientes.html", {"clientes": clientes})
+
     
 def read_productos(request):
     productos = Productos.objects.all() #Trae todo

@@ -10,4 +10,5 @@ urlpatterns = [
     path('create_empleados/', create_empleados),
     path('read_empleados/', read_empleados), 
     path('create_clientes/', create_clientes),
+    path('read_clientes/', read_clientes),
 ]
