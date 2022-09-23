@@ -20,7 +20,22 @@ def create_productos(request):
         return render(request, "read_productos.html", {"productos": productos})
     return render(request, "create_productos.html")
 
-
+def create_clientes(request):
+    if request.method == "POST":
+        cliente = Clientes(claveCliente = request.POST["claveCliente"],
+                           nombreProducto = request.POST["nombreProducto"],
+                           apellidoPaterno = request.POST["apellidoPaterno"],
+                           apellidoMaterno = request.POST["apellidoMaterno"],
+                           edad = request.POST["edad"],
+                           fechaNacimiento = request.POST["fechaNacimiento"],
+                           email = request.POST["email"],
+                           membresia = request.POST["membresia"]
+                           )
+        cliente.save()
+        clientes = Clientes.objects.all()
+        return render(request, "create_clientes.html", {"clientes": clientes} )
+    return render(request, "create_clientes.html" )
+    
 def read_productos(request):
     productos = Productos.objects.all() #Trae todo
     return render(request, "read_productos.html", {"productos": productos})

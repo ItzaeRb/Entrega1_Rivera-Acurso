@@ -9,4 +9,5 @@ urlpatterns = [
     path('buscar_producto/', buscar_producto),
     path('create_empleados/', create_empleados),
     path('read_empleados/', read_empleados), 
+    path('create_clientes/', create_clientes),
 ]
