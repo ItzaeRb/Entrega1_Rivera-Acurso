@@ -41,10 +41,16 @@ class Clientes(models.Model):
     email = models.EmailField()
     membresia = models.BooleanField()
 
+    #def para mostrar los datos de clientes en web.
+    def __str__(self):
+        return f"ClaveCliente: {self.claveCliente}, Nombre{self.nombreProducto}, ApellidoPaterno:{self.apellidoPaterno}, ApellidoMaterno:{self.apellidoMaterno}, Edad: {self.edad}, Fecha de nacimiento: {self.fechaNacimiento}, Email:{self.email}, Membresia:{self.membresia}"
 class Departamento(models.Model):
     claveDepartamento = models.CharField(max_length=10)
     nombreDepartamento = models.CharField(max_length=50)
     empleadoResponsable = models.CharField(max_length=80)
-    
+
+    #def para mostrar los datos de departamento en la web
+    def __str__(self):
+        return f"claveDepartamento: {self.claveDepartamento}, nombreDepartamento: {self.nombreDepartamento}, empleadoResponsable: {self.empleadoResponsable}"
 
 
