@@ -15,5 +15,5 @@ urlpatterns = [
     path('api_clientes/', api_clientes),
     path('buscar_clientes/', buscar_clientes),
     path("delete_clientes/<cliente_id>", delete_clientes),
-    
+    path("update_clientes/<cliente_id>", update_clientes)
 ]
