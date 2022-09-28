@@ -1,3 +1,4 @@
+import email
 from django.shortcuts import render
 from django.http import HttpResponse
 from SuperMarket.models import *
@@ -102,3 +103,9 @@ def buscar_clientes(request):
     else:
         respuesta = "No se enviaron los datos"
     return HttpResponse(respuesta)
+
+def delete_clientes(request, cliente_email):
+    cliente = Clientes.objects.get(email = cliente_email)
+    cliente.delete()
+    clientes = Clientes.objects.all()
+    return render(request, "read_clientes.html", {"clientes":clientes})
