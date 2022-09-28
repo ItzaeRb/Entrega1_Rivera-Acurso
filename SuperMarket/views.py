@@ -110,5 +110,30 @@ def delete_clientes(request, cliente_id):
     clientes = Clientes.objects.all()
     return render(request, "read_clientes.html", {"clientes":clientes})
 
-def update_clientes(request, cliente_email):
-    return 0
+def update_clientes(request, cliente_id):
+    cliente = Clientes.objects.get(id = cliente_id)
+    if request.method == "POST":
+        formulario = Form_clientes(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            cliente.claveCliente = informacion["claveCliente"]
+            cliente.nombreProducto = informacion["nombreProducto"]
+            cliente.apellidoPaterno = informacion["apellidoPaterno"]
+            cliente.apellidoMaterno = informacion["apellidoMaterno"]
+            cliente.edad = informacion["edad"]
+            cliente.fechaNacimiento = informacion["fechaNacimiento"]
+            cliente.email = informacion["email"]
+            cliente.membresia = informacion["membresia"]
+            cliente.save()
+            clientes = Clientes.objects.all() #Trae todo
+            return render(request, "read_clientes.html", {"clientes": clientes})
+    else:
+        formulario = Form_clientes(initial={"claveCliente":cliente.claveCliente,
+                                            "nombreProducto":cliente.nombreProducto,
+                                            "apellidoPaterno":cliente.apellidoPaterno,
+                                            "apellidoMaterno":cliente.apellidoMaterno,
+                                            "edad":cliente.edad,
+                                            "email":cliente.email,
+                                            "membresia":cliente.membresia,
+                                            })
+    return render(request, "update_clientes.html", {"formulario":formulario})
