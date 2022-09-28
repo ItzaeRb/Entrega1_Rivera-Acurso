@@ -3,21 +3,28 @@
 {% load static %}
 
 {% block contenido %}
-    <div class="form_productos">
+    <div class="form_ver_productos">
         <div>
-            <div class="encabezado"><h3>Mi cuenta</h3></div>
+            <div class="encabezado"><h3>Datos de usuario</h3></div>
         </div>
-        <div>
-            {% if clientes %}
-            <ul>
+        <table class="table table-bordered">
+            <thead style="background-color: #FA9F42; text-align: center;">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido paterno</th>
+                <th scope="col">Apellido materno</th>
+            </tr>
+            </thead>
+    
+            <tbody>
+                {% if clientes %}
                 {% for cliente in clientes %}
-                <li>{{cliente.claveCliente}}</li>
-                <li>{{cliente.nombreCliente}}</li>
-                <li>{{cliente.edad}}</li>
+                    <th>{{cliente.nombreProducto}}</th>
+                    <th>{{cliente.apellidoMaterno}}</th>
+                    <th>{{cliente.apellidoPaterno}}</th>
                 {% endfor %}
-            </ul>
-            {% endif %}
-        </div>
+                {% endif %}
+            </tbody>
     </div>
     <br>
 
