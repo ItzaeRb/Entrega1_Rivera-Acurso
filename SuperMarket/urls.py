@@ -13,4 +13,6 @@ urlpatterns = [
     path('create_clientes/', create_clientes),
     path('read_clientes/', read_clientes),
     path('api_clientes/', api_clientes),
+    path('buscar_clientes/', buscar_clientes),
+    
 ]
