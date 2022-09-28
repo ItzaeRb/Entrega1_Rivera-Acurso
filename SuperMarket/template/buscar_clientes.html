@@ -9,7 +9,7 @@
         </div>
         <table class="table table-bordered">
             <thead style="background-color: #FA9F42; text-align: center;">
-              <tr>
+            <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido paterno</th>
                 <th scope="col">Apellido materno</th>
@@ -24,8 +24,15 @@
                     <th>{{cliente.apellidoPaterno}}</th>
                 {% endfor %}
                 {% endif %}
-            </tbody>
+            </tbody> 
+        </table>
+
+    <div class="encabezado"><h4>Busqueda de Clientes:</h4></div>
+    <form class="form_datos" action="/SuperMarket/buscar_clientes/" method="GET">
+        <input type="text" name="claveCliente" placeholder="Clave de Cliente">
+        <br>
+        <button type="submit" class="btn btn-success">Buscar</button>
+    </form>
     </div>
-    <br>
 
 {% endblock %}
