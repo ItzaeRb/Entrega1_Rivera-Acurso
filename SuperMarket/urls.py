@@ -14,5 +14,6 @@ urlpatterns = [
     path('read_clientes/', read_clientes),
     path('api_clientes/', api_clientes),
     path('buscar_clientes/', buscar_clientes),
+    path("delete_clientes/<cliente_email>", delete_clientes),
     
 ]
