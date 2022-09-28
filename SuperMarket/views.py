@@ -92,3 +92,13 @@ def api_clientes(request):
     else:
         formulario = Form_clientes()
     return render(request, "api_clientes.html", {"formulario": formulario})
+
+
+def buscar_clientes(request):
+    if request.GET["claveCliente"]:
+        claveCliente = request.GET["claveCliente"]
+        clientes = Clientes.objects.filter(claveCliente__icontains = claveCliente)
+        return render(request, "buscar_clientes.html", {"clientes": clientes})
+    else:
+        respuesta = "No se enviaron los datos"
+    return HttpResponse(respuesta)
