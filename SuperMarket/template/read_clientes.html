@@ -19,6 +19,7 @@
             <th scope="col">Fecha de nacimiento</th>
             <th scope="col">E-mail</th>
             <th scope="col">Membresía</th>
+            <th scope="col">Accion</th>
             
           </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <th>{{cliente.fechaNacimiento}}</th>
                 <th>{{cliente.email}}</th>
                 <th>{{cliente.membresia}}</th>
+                <th><a class="btn btn-success" href="/SuperMarket/update_clientes">Edit</a><a class="btn btn-danger" href="/SuperMarket/delete_clientes/{{cliente.email}}">Delete</a></th>
             </tr>
             {%endfor%}
         </tbody>
