@@ -104,8 +104,11 @@ def buscar_clientes(request):
         respuesta = "No se enviaron los datos"
     return HttpResponse(respuesta)
 
-def delete_clientes(request, cliente_email):
-    cliente = Clientes.objects.get(email = cliente_email)
+def delete_clientes(request, cliente_id):
+    cliente = Clientes.objects.get(id = cliente_id)
     cliente.delete()
     clientes = Clientes.objects.all()
     return render(request, "read_clientes.html", {"clientes":clientes})
+
+def update_clientes(request, cliente_email):
+    return 0
