@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from SuperMarket.models import *
+from SuperMarket.forms import *
 
 
 # Create your views here.
@@ -69,3 +70,25 @@ def buscar_producto(request):
     else:
         respuesta = "No enviaste datos"
     return HttpResponse(respuesta)
+
+
+# def para crear formulario de clientesinformacion
+def api_clientes(request):
+    if request.method == "POST":
+        formulario = Form_clientes(request.POST)
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            cliente = Clientes(claveCliente = informacion["claveCliente"],
+                           nombreProducto = informacion["nombreProducto"],
+                           apellidoPaterno = informacion["apellidoPaterno"],
+                           apellidoMaterno = informacion["apellidoMaterno"],
+                           edad = informacion["edad"],
+                           fechaNacimiento = informacion["fechaNacimiento"],
+                           email = informacion["email"],
+                           membresia = informacion["membresia"]
+                           )
+            cliente.save()
+            return render(request, "api_clientes.html")
+    else:
+        formulario = Form_clientes()
+    return render(request, "api_clientes.html", {"formulario": formulario})
