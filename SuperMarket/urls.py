@@ -1,5 +1,6 @@
 from django.urls import path
 from SuperMarket.views import * 
+from SuperMarket.forms import Form_clientes
 
 urlpatterns = [
     path('', inicio),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('read_empleados/', read_empleados), 
     path('create_clientes/', create_clientes),
     path('read_clientes/', read_clientes),
+    path('api_clientes/', api_clientes),
 ]
