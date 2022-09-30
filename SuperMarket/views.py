@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from SuperMarket.models import *
 from SuperMarket.forms import *
 
-
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout, authenticate
 # Create your views here.
 
 #Se crea una funcion para cada pagina
@@ -137,3 +138,20 @@ def update_clientes(request, cliente_id):
                                             "membresia":cliente.membresia,
                                             })
     return render(request, "update_clientes.html", {"formulario":formulario})
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data = request.POST)
+        if form.is_valid():
+            user = form.cleaned_data.get("username")
+            pwd = form.cleaned_data.get("password")
+            user = authenticate(username = user, password = pwd)
+            if user is not None:
+                login(request, user)
+                return render(request, "home.html")
+            else:
+                return render(request, "login.html", {"form": form})
+        return render(request, "login.html", {"form": form})
+    form = AuthenticationForm()
+    return render(request, "login.html", {"form":form})
+
