@@ -9,7 +9,7 @@ from SuperMarket.forms import *
 
 #Se crea una funcion para cada pagina
 def inicio(request):
-    return render(request, "login.html")
+    return render(request, "home.html")
 
 def productos(request):
     return render(request, "create_productos.html")
