@@ -17,4 +17,5 @@ urlpatterns = [
     path("delete_clientes/<cliente_id>", delete_clientes),
     path("update_clientes/<cliente_id>", update_clientes),
     path('login/', login_request),
+    path('registro/', registro),
 ]
