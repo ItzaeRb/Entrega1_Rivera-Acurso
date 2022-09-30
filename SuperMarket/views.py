@@ -1,5 +1,5 @@
 import email
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from SuperMarket.models import *
 from SuperMarket.forms import *
@@ -154,4 +154,18 @@ def login_request(request):
         return render(request, "login.html", {"form": form})
     form = AuthenticationForm()
     return render(request, "login.html", {"form":form})
+
+def registro(request):
+    form = UserRegisterForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            #username = form.cleaned_data["username"]
+            form.save()
+            return redirect("/SuperMarket/login")
+        else:
+            return render(request, "registro.html", {"form":form})
+    form = UserRegisterForm()
+    return render(request, "registro.html", {"form":form})
+
+    
 
