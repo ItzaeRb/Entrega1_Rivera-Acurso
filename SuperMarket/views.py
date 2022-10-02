@@ -4,17 +4,23 @@ from django.http import HttpResponse
 from SuperMarket.models import *
 from SuperMarket.forms import *
 
+
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 #Se crea una funcion para cada pagina
+
+@login_required
 def inicio(request):
     return render(request, "home.html")
 
 def productos(request):
     return render(request, "create_productos.html")
 
+@login_required
 def create_productos(request):
     if request.method == 'POST':
         producto = Productos(claveProducto = request.POST['claveProducto'], nombre = request.POST['nombreProducto'], departamento = request.POST['departamento'], tipo = request.POST['tipo'], marca = request.POST['marca'], unidadMedida = request.POST['unidadMedida'], fechaCaducidad = request.POST['fechaCaducidad'], stock = request.POST['stock'])
@@ -23,6 +29,7 @@ def create_productos(request):
         return render(request, "read_productos.html", {"productos": productos})
     return render(request, "create_productos.html")
 
+@login_required
 def create_clientes(request):
     if request.method == "POST":
         cliente = Clientes(claveCliente = request.POST["claveCliente"],
@@ -39,7 +46,7 @@ def create_clientes(request):
         return render(request, "read_clientes.html", {"clientes": clientes} )
     return render(request, "create_clientes.html" )
 
-
+@login_required
 def read_clientes(request):
     clientes = Clientes.objects.all() #Trae todo
     return render(request, "read_clientes.html", {"clientes": clientes})
@@ -49,7 +56,7 @@ def read_productos(request):
     productos = Productos.objects.all() #Trae todo
     return render(request, "read_productos.html", {"productos": productos})
 
-
+@login_required
 def create_empleados(request):
     if request.method == 'POST':
         empleado = Empleados(claveEmpleado = request.POST['claveEmpleado'], nombre = request.POST['nombreEmpleado'], apellidoPaterno = request.POST['apellidoPaterno'], apellidoMaterno = request.POST['apellidoMaterno'], edad = request.POST['edad'], fechaNacimiento = request.POST['fechaNacimiento'], cargo = request.POST['cargo'], area = request.POST['area'])
@@ -58,6 +65,7 @@ def create_empleados(request):
         return render(request, "read_empleados.html", {"empleados": empleados})
     return render(request, "create_empleados.html")
 
+@login_required
 def read_empleados(request):
     empleados = Empleados.objects.all() #Trae todo
     return render(request, "read_empleados.html", {"empleados": empleados})
@@ -95,7 +103,7 @@ def api_clientes(request):
         formulario = Form_clientes()
     return render(request, "api_clientes.html", {"formulario": formulario})
 
-
+@login_required
 def buscar_clientes(request):
     if request.GET["claveCliente"]:
         claveCliente = request.GET["claveCliente"]
@@ -105,12 +113,14 @@ def buscar_clientes(request):
         respuesta = "No se enviaron los datos"
     return HttpResponse(respuesta)
 
+@login_required
 def delete_clientes(request, cliente_id):
     cliente = Clientes.objects.get(id = cliente_id)
     cliente.delete()
     clientes = Clientes.objects.all()
     return render(request, "read_clientes.html", {"clientes":clientes})
 
+@login_required
 def update_clientes(request, cliente_id):
     cliente = Clientes.objects.get(id = cliente_id)
     if request.method == "POST":
