@@ -1,6 +1,7 @@
 from django.urls import path
 from SuperMarket.views import * 
 from SuperMarket.forms import Form_clientes
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', inicio),
@@ -18,4 +19,5 @@ urlpatterns = [
     path("update_clientes/<cliente_id>", update_clientes),
     path('login/', login_request),
     path('registro/', registro),
+    path('logout/', LogoutView.as_view(template_name = "login.html"), name="Logout"),
 ]
