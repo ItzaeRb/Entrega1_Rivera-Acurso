@@ -4,8 +4,6 @@
 
 {% block contenido %}
 
-<link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
-
 <div class="form_ver_productos">
 
 <body>  
@@ -14,6 +12,10 @@
       {{ form.as_p }}
       <button class="btn btn-success" type="submit">Iniciar Sesion</button>
     </form>
+    <hr>
+    <a class="nav-link active" href="/SuperMarket/registro/">
+      <button class="btn btn-success" type="submit">Registrarse</button>
+    </a>
 </body>
 
 {% endblock %}
